@@ -26,7 +26,7 @@ async def login(username, password, panel):
     page = None  # 确保 page 在任何情况下都被定义
     serviceName = 'serv00'
     if (panel.includes('ct8')) {
-        serviceName := 'ct8';
+        serviceName = 'ct8';
     }
     try:
         if not browser:
