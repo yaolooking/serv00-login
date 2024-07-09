@@ -1,3 +1,11 @@
+## serv00与ct8自动化批量保号，每3天自动登录一次面板，并且发送消息到Telegram
+
+利用github Action以及python脚本实现
+
+🙏🙏🙏点个Star！！Star！！Star！！
+
+交流群：https://t.me/yxjsjl
+
 ### 将代码fork到你的仓库并运行的操作步骤
 
 #### 1. Fork 仓库
@@ -12,17 +20,20 @@
 
 1. **创建 Telegram Bot**
     - 在 Telegram 中找到 `@BotFather`，创建一个新 Bot，并获取 API Token。
-    - 获取到你的 Chat ID，可以通过向 Bot 发送一条消息，然后访问 `https://api.telegram.org/bot<your_bot_token>/getUpdates` 找到 Chat ID。
+    - 获取到你的 Chat ID 方法一，在[一休技术交流群](https://t.me/yxjsjl)里发送`/id@KinhRoBot`获取，返回用户信息中的`ID`就是Chat ID
+    - 获取到你的 Chat ID 方法二，可以通过向 Bot 发送一条消息，然后访问 `https://api.telegram.org/bot<your_bot_token>/getUpdates` 找到 Chat ID。
 
 2. **配置 GitHub Secrets**
     - 转到你 fork 的仓库页面。
     - 点击 `Settings`，然后在左侧菜单中选择 `Secrets`。
     - 添加以下 Secrets：
         - `ACCOUNTS_JSON`: 包含账号信息的 JSON 数据。例如：
+        - 
           ```json
           [
-            {"username": "user1", "password": "password1", "panelnum": 1},
-            {"username": "user2", "password": "password2", "panelnum": 2}
+            {"username": "serv00的账号", "password": "serv00的密码", "panel": "s6.serv00.com"},
+            {"username": "ct8的账号", "password": "ct8的密码", "panel": "panel.ct8.pl"},
+            {"username": "user2", "password": "password2", "panel": 2}
           ]
           ```
         - `TELEGRAM_BOT_TOKEN`: 你的 Telegram Bot 的 API Token。
@@ -49,15 +60,16 @@
     - 获取方法: 在 Telegram 中使用 `@BotFather` 创建 Bot 并获取 API Token。
 
 - **TELEGRAM_CHAT_ID**
-    - 示例值: `-123456789`
+    - 示例值: `1234567890`
     - 获取方法: 发送一条消息给你的 Bot，然后访问 `https://api.telegram.org/bot<your_bot_token>/getUpdates` 获取 Chat ID。
 
 - **ACCOUNTS_JSON**
     - 示例值:
       ```json
       [
-        {"username": "user1", "password": "password1", "panelnum": 1},
-        {"username": "user2", "password": "password2", "panelnum": 2}
+          {"username": "serv00的账号", "password": "serv00的密码", "panel": "s6.serv00.com"},
+          {"username": "ct8的账号", "password": "ct8的密码", "panel": "panel.ct8.pl"},
+          {"username": "user2", "password": "password2", "panel": "panel.ct8.pl"}
       ]
       ```
     - 获取方法: 创建一个包含serv00账号信息的 JSON 文件，并将其内容添加到 GitHub 仓库的 Secrets 中。
